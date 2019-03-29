@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+    <title>Exercícios</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<script>
+
+	let pets = [{
+            nome: "Doguinho A",
+            idade: 4,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Doguinho B",
+            idade: 5,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Doguinho C",
+            idade: 11,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Gatinho A",
+            idade: 17,
+            tipoPet: "gato"
+        }, {
+            nome: "Gatinho H",
+            idade: 2,
+            tipoPet: "gato"
+        }, {
+            nome: "Passarinho A",
+            idade: 12,
+            tipoPet: "pássaro"
+        }, {
+            nome: "Doguinho Z",
+            idade: 16,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Doguinho H",
+            idade: 4,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Gatinho P",
+            idade: 3,
+            tipoPet: "gato"
+        }];
+
+        //Trazendo apenas os pets que são gatos
+        let Gatos = pets.filter(itemLista => itemLista.tipoPet == "gato");
+        console.log(Gatos); 
+
+        //Listando os animais cuja idade seja superior a 7
+        let idadeSuperior = pets.filter(itemLista => itemLista.idade > 7);
+        console.log(idadeSuperior);
+
+        //Trazendo somente o nome dos pet
+        let saida = [];
+
+        //Trazendo apenas os nomes 
+        saida = pets.map(itemLista => itemLista.nome);
+        console.log(saida);
+
+        //Adicionando um cachorro
+        pets.push({
+            nome: "doguinho",
+            idade: 13,
+            tipoPet: "cachorro"
+        });
+        
+        console.log(pets);
+
+        //Quantidade de cachorros
+        let quantidadeDeDogMal = pets.filter(itemLista => itemLista.tipoPet == "cachorro").length;
+        console.log(quantidadeDeDogMal);
+
+        //Somando a idade dos pets
+        let soma = pets.reduce ( function (inicial , pets){
+            return inicial + pets.idade;
+        }, 0);
+        console.log(soma);
+            
+        
+</script>
+
+<body>
+
+</body>
+
+</html>

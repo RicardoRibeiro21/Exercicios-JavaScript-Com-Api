@@ -1,0 +1,27 @@
+body {
+    display: flex;
+}
+h1{
+    width: 100%;
+    text-align: center;
+    height: 1.5em;
+}
+#tabela-lista {
+    background-color: red;
+    border-radius: 16px;
+    background-attachment: scroll;
+}
+table {
+    width: 80%;
+    height: 50%;
+}
+.img{
+    max-width: 120px;
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77) 
+}
+
+td{
+    margin-top: 1.9em;
+    width: 135px;
+    height: 125px;
+}

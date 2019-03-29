@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Exercícios</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        let personagens = [{
+            nome: "Capitão Cometa",
+            dataAparicao: 1951,
+            editora: "DC"
+        }, {
+            nome: "Lanterna Verde",
+            dataAparicao: 1940,
+            editora: "DC"
+        }, {
+            nome: "Ciborgue",
+            dataAparicao: 1980,
+            editora: "DC"
+        }, {
+            nome: "Homem Aranha",
+            dataAparicao: 1962,
+            editora: "Marvel"
+        }, {
+            nome: "Homem de Ferro",
+            dataAparicao: 1963,
+            editora: "Marvel"
+        }, {
+            nome: "Capitão América",
+            dataAparicao: 1940,
+            editora: "Marvel"
+        }];
+
+        //Personagens que  são da Marvel
+        let EditoraMarvel = personagens.filter(itemLista => itemLista.editora == "Marvel");
+        console.log(EditoraMarvel);
+
+        //Personagens que apareceram dps de 1950
+        let Aparicao = personagens.filter(itemLista => itemLista.dataAparicao > 1950)
+        console.log(Aparicao);
+
+        //Trazendo apenas o nome dos personagens
+        let saida = [];
+        saida = personagens.map(itemLista => itemLista.nome);
+        console.log(saida);
+
+        //Adicionando um personagem
+        personagens.push({
+            nome: "Capitã Marvel",
+            dataAparicao: 1977,
+            editora: "Marvel"
+        });
+
+        //Mostrando a quantidade de pseronagens pertencentes a marvel
+        let quantidade = personagens.filter(itemLista => itemLista.editora == "Marvel").length;
+        console.log(quantidade);
+
+        //Somar a idade de todos os personagens 
+        let soma = personagens.reduce( function(inicial = 2019,personagens){
+            return inicial - personagens.dataAparicao;
+        }, 0);
+        console.log(soma);
+
+        let saidaNome = [];
+        //Trazendo o nome e idade dos personagens
+        saidaNome = personagens.map(itemLista => itemLista.nome && 2019 - itemLista.dataAparicao);
+        console.log(saidaNome);
+
+        saidaNome =  personagens.map(function(item){
+            return item.nome, 2019 - item.dataAparicao;
+        })
+    </script>
+
+</body>
+
+</html>

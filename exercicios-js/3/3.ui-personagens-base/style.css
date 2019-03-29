@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+tr{
+    border: 2px solid black;
+}
+th {
+    background-color: rgb(169, 169, 169);
+    font-size: 1.2em;
+    border-radius: 16px;
+}
+
+tr{
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+}
+
+
+#tabela-lista{
+    background-color: darkblue;
+    background: linear-gradient(#3f2ebb);          
+    border-radius: 16px;
+}

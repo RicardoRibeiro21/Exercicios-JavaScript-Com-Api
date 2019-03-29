@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+<head>
+
+    <title>InLock - Personagens</title>
+    
+
+    <style>
+      
+    </style>
+
+</head>
+
+<body>
+
+    <table id="tabela-lista">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Estudio</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabela-lista-corpo"></tbody>
+    </table>
+<script>
+        const URL = "https://5c9cbcf13be4e30014a7d268.mockapi.io/hroads/jogos";
+
+let TabelaJogos = []
+
+let table = document.querySelector("#tabela-lista");
+
+function carregarDados(){
+  fetch(URL)
+  .then(resposta => resposta.json())
+  .then(data => preencherTabela(data))
+  .catch(erro => console.log('erro', erro));
+}
+
+carregarDados();
+
+function preencherTabela(TabelaJogos){
+  TabelaJogos.forEach(element => {
+      //Criando linhas
+      let linhaTabela = document.createElement('tr');
+      //Criando colunas            
+      let colunaId = document.createElement('td');
+      colunaId.innerText = element.id;
+
+      let colunaImagem = document.createElement('td');
+      colunaImagem.innerHTML = "<img src ='" + element.imagem + "' draggable ='false'/>";
+
+      let colunaNome = document.createElement('td');
+      colunaNome.innerText = element.nome;
+
+      let colunaDescricao = document.createElement('td');
+      colunaDescricao.innerText = element.descricao;
+
+      let colunaEstudio = document.createElement('td');
+      colunaEstudio.innerText = element.estudio.nome;
+
+      linhaTabela.appendChild(colunaId);
+      linhaTabela.appendChild(colunaImagem);
+      linhaTabela.appendChild(colunaNome);
+      linhaTabela.appendChild(colunaDescricao);
+      linhaTabela.appendChild(colunaEstudio);
+
+      table.appendChild(linhaTabela);
+
+  });
+}
+    </script>
+
+</body>
+
+</html>

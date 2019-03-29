@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>InLock - Personagens</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+        <h1>Personagens Marvel</h1> 
+    <table id="tabela-lista">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabela-lista-corpo"></tbody>
+    </table>
+    
+
+</body>
+<script>
+    let personagens = []
+
+        let tabela = document.querySelector("#tabela-lista");
+
+        function carregamento (personagens){
+            personagens.forEach(element => {
+            let novaLinha = document.createElement('tr');
+
+            let colunaPersonagem = document.createElement('td');
+            colunaPersonagem.innerText = element.nome;
+
+            let colunaTitulo = document.createElement('td');
+            colunaTitulo.innerText = element.lancamento;
+
+            let colunaImagem = document.createElement('td');
+            colunaImagem.innerHTML = "<img class='img' src='" + element.urlImagem + "'/>";
+
+            novaLinha.appendChild(colunaPersonagem);
+            novaLinha.appendChild(colunaTitulo);
+            novaLinha.appendChild(colunaImagem);
+
+            tabela.appendChild(novaLinha);
+            });
+        }
+    const URL = "https://salty-atoll-57329.herokuapp.com/personagens";
+    fetch(URL)
+        .then(resposta => resposta.json())
+        .then(data => carregamento(data))
+        .catch(error => console.error('erro' , error));
+    
+</script>
